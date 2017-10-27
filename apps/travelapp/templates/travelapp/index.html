@@ -1,0 +1,48 @@
+
+<html>
+    <head>
+        <title>Registration and Login</title>
+        {%load static%}        
+    </head>
+    <body>
+        <div>
+            <h1>Registration</h1>
+            <form action="/login_page" method='post'>
+                {% csrf_token %}
+                Full Name:<br>
+                <input type="text" name="fullname">
+                <br>
+                Username:<br>
+                <input type="text" name="username">
+                <br>
+                Password:<br>
+                <input type="password" name="password">
+                <br>
+                Password confirm: <br>
+                <input type="password" name="password_confirm">
+                <br>
+                <input type="submit" value="Register">
+            </form> 
+        </div>
+        <div>
+            <h1>User Login</h1>
+            <form action="/login" method='post'>
+                {% csrf_token %}
+                Username:<br>
+                <input type="text" name="username">
+                <br>
+                Password:<br>
+                <input type="password" name="password">
+                <br>
+                <input type="submit" value="Login">
+            </form> 
+        </div>
+                {% if messages %}
+            <ul>
+                {% for message in messages %}
+                <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </body>
+</html>

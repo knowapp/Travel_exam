@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Add New Travel Plan</title>
+        {%load static%}
+        
+    </head>
+    <body>
+    </body>
+    <a href="/">Home</a>
+    <form action="/logout" method='post'>
+    {% csrf_token %}
+    <input type="submit" value="Logout">
+    </form> 
+    <div>
+            <h4>Add a Travel Plan</h4>
+            <form action="/add" method='post'>
+                {% csrf_token %}
+                Destination: 
+                <input type="text" name="destination">
+                <br>
+                Travel Date From: 
+                <input type="text" name="start">
+                <br>
+                Travel Date To: 
+                <input type="password" name="end">
+                <br>
+                <input type="submit" value="add">
+            </form> 
+        </div>
+</html>
